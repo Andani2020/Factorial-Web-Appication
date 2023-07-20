@@ -28,7 +28,5 @@ We have exactly one page with:
 7. Include test coverage
 8. Add any documentation that might be necessary to explain your process, include this in a file in the repo.
 
-
 ## How to submit
-
 Please upload the code for this project to GitHub, and post a link to your repository.
