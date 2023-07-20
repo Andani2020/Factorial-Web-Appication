@@ -1,0 +1,167 @@
+
+## QA Assessment Answers 
+                                                                          
+1. Write a locator (CSS selector/XPath) for the red form validation styling
+
+red_form_xpath = //*[contains(@style, 'border: 2px solid red;')]
+
+
+2. Find the console message printed
+
+consile log message : Hello! I am in the done part of the ajax call
+
+3. Write a Selenium script to test that the factorial of 7 is 5040
+   
+   QA-Take-Home-Assessment\factorial_test.py
+
+4. Figure out the API call being made along with the headers and parameters sent
+
+API Call : GET  http://localhost:6464/
+
+Headers: 
+HTTP Version :GET / HTTP/1.1
+Host: localhost:6464
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Cookie: _ga_F2PLZ6GCDD=GS1.1.1689806550.2.1.1689806552.0.0.0; _ga=GA1.1.1774984254.1689803874; _gid=GA1.1.1725594737.1689803874; _gat_gtag_UA_38578610_5=1
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: noneGET
+
+5. Write a bug report 
+
+Bug Report
+
+Summary:
+The  automated selenium script is not exracting and displaying the factorial result from the factorial home page for the "Factorial Calculator" feature.
+
+Steps to Reproduce:**
+1  run python `factorial_test.py` script from QA-Take-Home-Assessment\factorial_test.py
+2  The automatedscript will Open a browser and navigate to the application url.
+3. Then Navigate to the "Factorial Calculator" section.
+3. And Enter the number 7 in the input field.
+4. And Click on the "Calculate" button.
+5  And read the displayed results 
+6. And verify if the results is correct
+
+Expected Behavior:
+After clicking the "Calculate" button, the selenium script should extract the results displayed on the screen and verify if its correct.
+
+Actual Behavior:**
+Instead of extracting  the result diplayed on the screen , the selenium script its returing blank space , wich it is resulting in a failed test case  
+
+Additional Information:
+- This issue occurs consistently on all browsers tested .
+- There are no error messages or exceptions displayed during the calculation process.
+- The error messege "Error: invalid literal for int() with base 10: ''" is thrown during the results verification .
+- factorial application is working correctly.
+
+
+Environment:
+- Operating System: Windows 10 Pro
+- Web Browser:Google Chrome version 115.0.5790.98, Mozilla Firefox version 116.0b7
+- Device: Desktop
+
+
+Severity:
+This issue is of high severity as it affects the accuracyof automated test results.
+
+Impact:
+The incorrect result could lead stakeholders to make incorrect decisions based on the test autometed result.
+
+Priority:
+This issue should be addressed with high priority to maintain the integrity and accuracy of the automation scripts.
+
+Proposed Solution:
+Investigate the factorial calculation web page source code and ensure it is correctly implemented. Perform thorough testing and debugging to identify the root cause of the issue. Once identified, fix the issues which is preventing the selenium to return the element text content.
+
+Workaround:
+As a temporary workaround, users can manually verify the correct factorial value for the number 7 until the issue is resolved.
+
+Reproducibility:
+The issue can be reproduced consistently using the steps mentioned above.
+
+Note:
+Please let me know if any additional information or logs are required to investigate and fix the issue effectively.
+
+
+
+6. Document a test case
+
+Test Case ID: TC001
+Test Case Name: Factorial Calculation - Valid Input
+
+Description:
+This test case verifies the correct calculation of the factorial for a valid input number in the "Factorial Calculator" feature of the web application.
+
+Test Objective:
+To ensure that the application correctly calculates the factorial of a given valid input number and displays the accurate result.
+
+Preconditions:
+
+The user has navigated to the "Factorial Calculator" section of the application.
+Test Steps:
+
+Enter the number 7 in the input field.
+Click on the "Calculate" button.
+Expected Result:
+The application should correctly calculate the factorial of 7, which is 5040, and display the result on the screen.
+
+Test Data:
+
+Input: 7
+Test Environment:
+
+Operating System: Windows 10 pro
+Web Browser: Google Chrome version 115.0.5790.98
+
+Server URL: http://localhost:6464/
+Test Execution:
+
+Navigate to the "Factorial Calculator" section of the application.
+Enter the number 7 in the input field.
+Click on the "Calculate" button.
+Verify that the application displays the correct result "5040" for the factorial of 7.
+Record the test results as Pass or Fail. 
+
+Test Pass Criteria:
+The test will be considered successful (Pass) if the application correctly calculates and displays the factorial result of 7 as 5040. Otherwise, it will be considered a failure (Fail).
+
+Test Notes:
+
+The test case should be executed on different browsers and devices to ensure cross-browser and cross-device compatibility.
+Test boundary values, such as calculating the factorial of 0 or 1, to verify the application's behavior in edge cases.
+Test Case Status:
+
+Test Execution Date: 
+Test Result: [Pass/Fail]
+Comments: 
+Test Case Author:
+
+
+
+7. Include test coverage
+
+Test Coverage:
+This test case covers the following aspects of the "Factorial Calculator" feature:
+
+Positive Testing:
+
+Verifying that the application correctly calculates the factorial for a valid positive integer (7) as input.
+Confirming that the displayed result matches the expected factorial value (5040).
+Boundary Testing:
+
+Not applicable for this test case, as it focuses on a valid positive input.
+Cross-Browser Testing:
+
+The test should be executed on different web browsers (Firefox, chrome) to ensure compatibility and consistent behavior.
+Cross-Device Testing:
+
+The test should be performed on various devices (e.g., desktop, tablet, mobile) to verify responsiveness and layout adjustments
+
+
+8. Add any documentation that might be necessary to explain your process, include this in a file in the repo.	
