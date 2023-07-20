@@ -20,11 +20,7 @@ We have exactly one page with:
 ## QA Requirements for you to implement
 
 1. Write a locator (CSS selector/XPath) for the red form validation styling
-//input[@style='border: 2px solid red;']
-
 2. Find the console message printed
-Hello! I am in the done part of the ajax call
-
 3. Write a Selenium script to test that the factorial of 7 is 5040
 4. Figure out the API call being made along with the headers and parameters sent
 5. Write a bug report
