@@ -30,3 +30,9 @@ We have exactly one page with:
 
 ## How to submit
 Please upload the code for this project to GitHub, and post a link to your repository.
+
+## Assement set up
+
+1. To start the application, run `python qa_interview.py`
+2. To run the selenium script, run `python factorial_test.py`
+3. To view answers for QA Requirements for implementation, open QA-Take-Home-Assessment-Answers.txt
