@@ -1,60 +1,54 @@
+import unittest
 from selenium import webdriver
-import math
 from selenium.webdriver.common.by import By
+import math
 
 # Function to calculate factorial of a number
 def factorial(num):
     return math.factorial(num)
 
-try:
-    # Start a new instance of Chrome web browser
-    driver = webdriver.Chrome()
+class TestFactorialCalculator(unittest.TestCase):
 
-    # Navigate to a website for factorial appliaction
-    driver.get("http://localhost:6464")
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
+        self.driver.get("http://localhost:6464")
 
-    # Find the input element for entering the number
-    input_field = driver.find_element(By.ID,"number")
+    def test_calculate_factorial(self):
+        input_number = 7
 
-    # Enter the number 7 to calculate the factorial of 7
-    input_field.send_keys("7")
+        # Find the input element for entering the number
+        input_field = self.driver.find_element(By.ID, "number")
+        input_field.send_keys(str(input_number))
 
-    # Find and click the "Calculate" button
-    calculate_button = driver.find_element(By.ID,"getFactorial")
-    calculate_button.click()
+        # Find and click the "Calculate" button
+        calculate_button = self.driver.find_element(By.ID, "getFactorial")
+        calculate_button.click()
 
-    # Wait for the result to be displayed
-    driver.implicitly_wait(30)
+        # Wait for the result to be displayed
+        self.driver.implicitly_wait(10)
 
-    # Find the result element and extract the calculated factorial
-    result_element = driver.find_element(By.ID,'resultDiv')
-   
-  
-    # extract the reults from the result element
-  
-    factorial_result = result_element.text
-    
-    # Split the string at the colon ":" and take the last part
-    number_part = factorial_result.split(":")[-1]
+        # Find the result element and extract the calculated factorial
+        result_element = self.driver.find_element(By.ID, 'resultDiv')
+        factorial_result = result_element.text
 
-    # Remove any whitespaces and convert to an integer
-    result_number = int(number_part.strip())
-    
-    print("The calculated results is:",result_number)
-  
-  
-    # Calculate the factorial of 7 using fatorial function
-    expected_result = factorial(7)
+        # Split the string at the colon ":" and take the last part
+        number_part = factorial_result.split(":")[-1]
 
-    # Assert that the calculated factorial matches the expected result
-    assert result_number == expected_result, f"Factorial of 7 is incorrect. Expected: {expected_result}, Actual: {result_number}"
+        # Remove any whitespaces and convert to an integer
+        result_number = int(number_part.strip())
 
-    print("Factorial of 7 is calculated correctly: 7! =", result_number)
+        # Calculate the factorial of 7 using the factorial function
+        expected_result = factorial(input_number)
 
-except Exception as e:
-    print("Error:", e)
-    
+        # Assert that the calculated factorial matches the expected result
+        self.assertEqual(result_number, expected_result, f"Factorial of {input_number} is incorrect. Expected: {expected_result}, Actual: {result_number}")
 
-finally:
-    # Close the browser window
-    driver.quit()
+        print(f"Factorial of {input_number} is calculated correctly: {input_number}! = {result_number}")
+
+    def tearDown(self):
+        # Close the browser window
+        self.driver.quit()
+
+if __name__ == "__main__":
+    unittest.main()
